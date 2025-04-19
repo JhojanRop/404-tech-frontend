@@ -1,0 +1,32 @@
+name: Release Please Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      
+      - name: Run Release Please
+        uses: googleapis/release-please-action@v4.2.0
+        with:
+          release-type: node
+          package-name: "404-tech"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          changelog-types: '{"feat":"Features","fix":"Bug Fixes","docs":"Documentation","chore":"Maintenance"}'
+          bump-minor-pre-major: true
+          tag-prefix: "v"
+          release-label: "release-please"
