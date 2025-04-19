@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@theme {
+  --color-porcelain: #BFBFBF;
+  --color-onyx: #1C1C1C;
+  --color-viridian-50: #F0FDF4;
+  --color-viridian-100: #DCFCE7;
+  --color-viridian-200: #BBF7CF;
+  --color-viridian-300: #86EFAB;
+  --color-viridian-400: #4BDF7F;
+  --color-viridian-500: #21C65C;
+  --color-viridian-600: #15A448;
+  --color-viridian-700: #14813C;
+  --color-viridian-800: #166533;
+  --color-viridian-900: #14532C;
+  --color-viridian-950: #052E15;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Tektur', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
