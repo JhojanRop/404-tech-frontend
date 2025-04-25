@@ -1,17 +1,7 @@
-'use client'
-
 import Button from "@/components/ui/Button";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function LoginPage() {
-  const [formData, setFormData] = useState({ username: "", password: "" })
-  const [error, setError] = useState("")
-
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-  }
-
   return (
     <div className="w-screen h-dvh bg-pattern flex items-center">
       <main className="w-full max-w-2xl h-10/12 my-auto md:h-full mx-auto text-center bg-black flex flex-col justify-center items-center gap-7">
@@ -20,30 +10,9 @@ export default function LoginPage() {
           <p>Enter your details to continue</p>
         </div>
 
-        {error && (
-          <div className="w-3/4 max-w-md px-5 py-1.5 bg-red-500 border flex justify-between">
-            <p className="text-sm">{error}</p>
-            <button className="cursor-pointer" onClick={() => setError("")}>×</button>
-          </div>
-        )}
-
-        <form className="w-3/4 max-w-md flex flex-col gap-2.5" onSubmit={handleLogin}>
-          <input
-            type="text"
-            placeholder="Username"
-            className="border border-white px-4 py-1"
-            value={formData.username}
-            onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="border border-white px-4 py-1"
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            required
-          />
+        <form className="w-3/4 max-w-md flex flex-col gap-2.5">
+          <input type="text" placeholder="Username" className="border border-white px-4 py-1" />
+          <input type="password" placeholder="Password" className="border border-white px-4 py-1" />
           <Button className="w-fit mx-auto mt-4 py-1 px-24">Sign in</Button>
         </form>
 
