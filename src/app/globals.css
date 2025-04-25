@@ -28,7 +28,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
+    --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
@@ -37,11 +37,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Tektur', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-}
-
-.bg-pattern {
-  background-color: var(--background);
-  opacity: 1;
-  background: radial-gradient(circle, transparent 20%, var(--background) 20%, var(--background) 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, var(--background) 20%, var(--background) 80%, transparent 80%, transparent) 72.5px 72.5px, linear-gradient(#15A448 5.800000000000001px, transparent 5.800000000000001px) 0 -2.9000000000000004px, linear-gradient(90deg, #15A448 5.800000000000001px, var(--background) 5.800000000000001px) -2.9000000000000004px 0;
-  background-size: 145px 145px, 145px 145px, 72.5px 72.5px, 72.5px 72.5px;
 }
