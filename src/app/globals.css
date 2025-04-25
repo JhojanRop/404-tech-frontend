@@ -3,7 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --border-width: 3px;
 }
 
 @theme inline {
@@ -45,30 +44,4 @@ body {
   opacity: 1;
   background: radial-gradient(circle, transparent 20%, var(--background) 20%, var(--background) 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, var(--background) 20%, var(--background) 80%, transparent 80%, transparent) 72.5px 72.5px, linear-gradient(#15A448 5.800000000000001px, transparent 5.800000000000001px) 0 -2.9000000000000004px, linear-gradient(90deg, #15A448 5.800000000000001px, var(--background) 5.800000000000001px) -2.9000000000000004px 0;
   background-size: 145px 145px, 145px 145px, 72.5px 72.5px, 72.5px 72.5px;
-}
-
-.bordered {
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    border: 0px solid #15A448;
-    width: 30%;
-    height: 100%;
-    transition: all 0.1s ease-in-out;
-  }
-
-  &::before {
-    left: 0;
-    border-left-width: 2px;
-    border-bottom-width: 2px;
-  }
-
-  &::after {
-    right: 0;
-    border-right-width: 2px;
-    border-top-width: 2px;
-  }
 }
