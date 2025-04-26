@@ -7,7 +7,7 @@ import IconButton from "../ui/IconButton";
 
 export default function Navbar() {
     return (
-        <header className="h-20 px-5 flex items-center">
+        <header className="w-full h-20 px-5 bg-black flex items-center fixed top-0 z-10">
             <Link href="/" ><Logo className="w-26" /></Link>
 
             <nav className="flex grow justify-center gap-2">
