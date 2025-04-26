@@ -6,15 +6,15 @@ type ContentLayoutProps = {
 
 export default function ContentLayout({ children, className, height = 100 }: ContentLayoutProps) {
   const heightClass = {
-    20: 'h-[20dvh]',
-    30: 'h-[30dvh]',
-    40: 'h-[40dvh]',
-    50: 'h-[50dvh]',
-    60: 'h-[60dvh]',
-    70: 'h-[70dvh]',
-    80: 'h-[80dvh]',
-    90: 'h-[90dvh]',
-    100: 'h-dvh',
+    20: 'h-[calc(20dvh)]',
+    30: 'h-[calc(30dvh)]',
+    40: 'h-[calc(40dvh)]',
+    50: 'h-[calc(50dvh)]',
+    60: 'h-[calc(60dvh)]',
+    70: 'h-[calc(70dvh)]',
+    80: 'h-[calc(80dvh)]',
+    90: 'h-[calc(90dvh)]',
+    100: 'h-[calc(100dvh_-_80px)]',
   }[height]
 
   return (
