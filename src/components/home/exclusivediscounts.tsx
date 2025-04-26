@@ -2,12 +2,12 @@ import Card from "../ui/Card";
 
 const Exclusive = () => {
     return (
-        <div className="flex flex-col items-center justify-center gap-8 h-[70vh] bg-[#1c1c1c]">
+        <div className="flex flex-col items-center justify-center gap-8 min-h-[70vh] bg-[#1c1c1c]">
             <div className="flex flex-col items-start w-3/4">
                 <h2 className="font-bold text-2xl">EXCLUSIVE DISCOUNT</h2>
             </div>
             <div className="w-3/4">
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <Card
                         image="/image-test.jpg"
                         title="Product 1"
