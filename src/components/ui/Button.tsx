@@ -6,19 +6,19 @@ type ButtonProps = {
   variant?: 'filled' | 'bordered' | 'classic' | 'icon'
   type?: 'button' | 'link'
   href?: string
-  icon?: ""
+  icon?: React.ReactElement
   selected?: boolean
   onClick?: () => void
   className?: string
 }
 
-export default function Button({ children, variant = "classic", onClick, className = '', selected = false, type = 'button', href = "" }: ButtonProps) {
-  const base = "block font-medium uppercase transition-all cursor-pointer relative"
+export default function Button({ children, variant = "classic", onClick, className = '', selected = false, type = 'button', href = "", icon }: ButtonProps) {
+  const base = "block text-base font-medium uppercase transition-all cursor-pointer relative flex"
   const variants = {
     filled: "bordered text-black bg-viridian-600 -skew-x-[20deg] hover:text-white hover:bg-transparent",
     bordered: "bordered bg-transparent -skew-x-[20deg] hover:bg-viridian-600",
     classic: "bg-viridian-600 rounded-md",
-    icon: `px-3 py-1 rounded-2xl inset-shadow ${selected ? " bg-viridian-600 text-black" : "bg-black text-white"}`
+    icon: `px-4 py-1.5 rounded-full gap-1.5 items-center inset-shadow ${selected ? " bg-viridian-600 text-black" : "bg-black text-white"}`
   }
 
 
@@ -28,7 +28,8 @@ export default function Button({ children, variant = "classic", onClick, classNa
         onClick={onClick}
         className={`${base} ${variants[variant]} ${className}`}
       >
-        <span className={variant !== "classic" ? "skew-x-[20deg]" : ""}>{children}</span>
+        {icon}
+        <span className={`${!["classic", "icon"].includes(variant) ? "skew-x-[20deg]" : ""}`}>{children}</span>
       </button>
     )
   }
@@ -36,7 +37,8 @@ export default function Button({ children, variant = "classic", onClick, classNa
   if (type === "link") {
     return (
       <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
-        <span className={variant !== "classic" ? "skew-x-[20deg]" : ""}>{children}</span>
+        {icon}
+        <span className={`${!["classic", "icon"].includes(variant) ? "skew-x-[20deg]" : ""}`}>{children}</span>
       </Link>
     )
   }
