@@ -1,23 +1,25 @@
+'use client'
+import { HomeIcon, BuildingStorefrontIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/solid";
+import Logo from "../icons/Logo";
 import Button from "../ui/Button";
+import Link from "next/link";
+import IconButton from "../ui/IconButton";
 
-const Navbar = () => {
+export default function Navbar() {
     return (
-        <div className="flex w-full justify-between items-center h-[10vh] fixed top-0 left-0 z-10 px-4 bg-black">
-            <div></div>
-            <div className="flex gap-4">
-                <Button variant="classic" className="px-4 py-2 color-black">
-                    <span>HOME</span>
-                </Button>
-                <Button variant="classic" className="px-4 py-2 color-black">
-                    <span>STORE</span>
-                </Button>
-                <Button variant="classic" className="px-4 py-2 color-black">
-                    <span>SEARCH</span>
-                </Button>
+        <header className="h-20 px-5 flex items-center">
+            <Link href="/" ><Logo className="w-26" /></Link>
+
+            <nav className="flex grow justify-center gap-2">
+                <Button variant="icon" type="link" href="/" selected icon={<HomeIcon width={24} />}>Home</Button>
+                <Button variant="icon" type="link" href="/products" icon={<BuildingStorefrontIcon width={24} />}>Store</Button>
+                <Button variant="icon" type="link" href="/search" icon={<MagnifyingGlassIcon width={24} />}>Search</Button>
+            </nav>
+
+            <div className="flex gap-2">
+                <IconButton icon={<ShoppingCartIcon width={16} />} quantity={0} />
+                <IconButton icon={<UserIcon width={16} />} />
             </div>
-            <div></div>
-        </div>
+        </header>
     )
 }
-
-export default Navbar;
