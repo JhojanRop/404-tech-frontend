@@ -1,17 +1,21 @@
+'use client'
+import ContentLayout from "../ContentLayout";
 import Button from "../ui/Button";
 
 const Hero = () => {
     return (
-        <div className="flex flex-col items-center justify-center h-[70vh] gap-8 mt-0">
-            <div>
-                <img src="/image-test.jpg" alt="test" className="" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Button variant="bordered" className="px-4 py-2">THE NEWEST</Button>
-                <Button variant="bordered" className="px-4 py-2">GET A QUOTE</Button>
-                <Button variant="bordered" className="px-4 py-2">OUR RECOMMENDATIONS</Button>
-            </div>
-        </div>
+        <section>
+            <ContentLayout className="flex flex-col justify-evenly">
+                <div>
+                    <img src="/image-test.jpg" alt="test" className="w-full aspect-video" />
+                </div>
+                <div className="flex flex-col gap-y-5 md:flex-row justify-between">
+                    <Button variant="bordered" className="px-4 py-2 uppercase">The newest</Button>
+                    <Button variant="bordered" className="px-4 py-2 uppercase">Our recomendations</Button>
+                    <Button variant="bordered" className="px-4 py-2 uppercase">Get a coute</Button>
+                </div>
+            </ContentLayout>
+        </section>
     )
 }
 
