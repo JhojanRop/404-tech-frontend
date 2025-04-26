@@ -12,7 +12,7 @@ const Bestsellers = () => {
     ])
 
     return (
-        <div className="bg-onyx">
+        <section className="bg-onyx">
             <ContentLayout height={80} className="flex flex-col justify-center">
                 <h2 className="py-4 text-2xl font-bold">Best Sellers</h2>
                 <div>
@@ -23,7 +23,7 @@ const Bestsellers = () => {
                     </div>
                 </div>
             </ContentLayout>
-        </div>
+        </section>
     )
 }
 
