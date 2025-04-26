@@ -7,7 +7,7 @@ const Hero = () => {
         <section>
             <ContentLayout className="flex flex-col justify-evenly">
                 <div>
-                    <img src="/image-test.jpg" alt="test" className="w-full aspect-video" />
+                    <img src="/image-test.jpg" alt="test" className="w-full max-h-[70dvh] aspect-video" />
                 </div>
                 <div className="flex flex-col gap-y-5 md:flex-row justify-between">
                     <Button variant="bordered" className="px-4 py-2 uppercase">The newest</Button>
