@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Tektur } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/home/navbar";
 
 const tektur = Tektur({
   variable: "--font-tektur",
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${tektur.variable} antialiased`}>
+        <Navbar />
         {children}
       </body>
     </html>
