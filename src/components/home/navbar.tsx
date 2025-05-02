@@ -12,7 +12,7 @@ export default function Navbar() {
 
             <nav className="flex grow justify-center gap-2">
                 <Button variant="icon" type="link" href="/" selected icon={<HomeIcon width={24} />}>Home</Button>
-                <Button variant="icon" type="link" href="/products" icon={<BuildingStorefrontIcon width={24} />}>Store</Button>
+                <Button variant="icon" type="link" href="/store" icon={<BuildingStorefrontIcon width={24} />}>Store</Button>
                 <Button variant="icon" type="link" href="/search" icon={<MagnifyingGlassIcon width={24} />}>Search</Button>
             </nav>
 
