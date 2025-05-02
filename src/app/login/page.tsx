@@ -3,14 +3,29 @@
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { loginUser } from "@/services/auth";
+import { useRouter } from "next/navigation";
+
+
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({ username: "", password: "" })
   const [error, setError] = useState("")
+  const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-  }
+
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      const user = await loginUser(formData.username, formData.password);
+      console.log("User logged in:", user);
+      router.push("/");
+    } catch (err: any) {
+      setError(err.message);
+    }
+  };
 
   return (
     <div className="w-screen h-dvh bg-pattern flex items-center">
