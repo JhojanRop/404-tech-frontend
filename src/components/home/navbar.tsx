@@ -1,4 +1,5 @@
 'use client'
+import { usePathname } from 'next/navigation'
 import { HomeIcon, BuildingStorefrontIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/solid";
 import Logo from "../icons/Logo";
 import Button from "../ui/Button";
@@ -6,14 +7,40 @@ import Link from "next/link";
 import IconButton from "../ui/IconButton";
 
 export default function Navbar() {
+    const pathname = usePathname()
+
     return (
         <header className="w-full h-20 px-5 bg-black flex items-center fixed top-0 z-10">
             <Link href="/" ><Logo className="w-26" /></Link>
 
             <nav className="flex grow justify-center gap-2">
-                <Button variant="icon" type="link" href="/" selected icon={<HomeIcon width={24} />}>Home</Button>
-                <Button variant="icon" type="link" href="/products" icon={<BuildingStorefrontIcon width={24} />}>Products</Button>
-                <Button variant="icon" type="link" href="/search" icon={<MagnifyingGlassIcon width={24} />}>Search</Button>
+                <Button
+                    variant="icon"
+                    type="link"
+                    href="/"
+                    icon={<HomeIcon width={24} />}
+                    selected={pathname === '/'}
+                >
+                    Home
+                </Button>
+                <Button
+                    variant="icon"
+                    type="link"
+                    href="/products"
+                    icon={<BuildingStorefrontIcon width={24} />}
+                    selected={pathname.startsWith('/products')}
+                >
+                    Products
+                </Button>
+                <Button
+                    variant="icon"
+                    type="link"
+                    href="/search"
+                    icon={<MagnifyingGlassIcon width={24} />}
+                    selected={pathname === '/search'}
+                >
+                    Search
+                </Button>
             </nav>
 
             <div className="flex gap-2">
