@@ -5,10 +5,11 @@ interface CardProps {
     image: string;
     title: string;
     price: string;
-    sale: boolean
+    sale: boolean;
+    onAddToCart?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ image, title, price, sale }) => {
+const Card: React.FC<CardProps> = ({ image, title, price, sale, onAddToCart }) => {
     return (
         <div className="flex flex-col items-center justify-center relative">
             {
@@ -17,7 +18,7 @@ const Card: React.FC<CardProps> = ({ image, title, price, sale }) => {
             <img src={image} alt={title} className="" />
             <h3 className="font-bold">{title}</h3>
             <p>{price}</p>
-            <Button variant="classic" className="w-full">ADD TO CART</Button>
+            <Button variant="classic" className="w-full" onClick={onAddToCart}>ADD TO CART</Button>
         </div>
     );
 };

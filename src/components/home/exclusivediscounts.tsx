@@ -3,8 +3,12 @@ import { useState } from "react";
 import ContentLayout from "../ContentLayout";
 import Card from "../ui/Card";
 
-const Exclusive = () => {
-    const [products, setProducts] = useState([
+interface ExclusiveProps {
+    onAddToCart: () => void;
+}
+
+const Exclusive = ({onAddToCart}: ExclusiveProps) => {
+    const [products,] = useState([
         { id: "E", image: "/image-test.jpg", title: 'Product E', price: 850, oldPrice: 900, isSale: true },
         { id: "F", image: "/image-test.jpg", title: 'Product F', price: 500, oldPrice: 550, isSale: true },
         { id: "G", image: "/image-test.jpg", title: 'Product G', price: 1320, oldPrice: 1500, isSale: true },
@@ -18,7 +22,13 @@ const Exclusive = () => {
                 <div>
                     <div className="w-full flex justify-between">
                         {products.map(product => (
-                            <Card key={product.id} image={product.image} title={product.title} sale={product.isSale} price={product.price.toLocaleString('es-ES')} />
+                            <Card key={product.id} 
+                                image={product.image} 
+                                title={product.title} 
+                                sale={product.isSale} 
+                                price={product.price.toLocaleString('es-ES')} 
+                                onAddToCart={onAddToCart}
+                            />
                         ))}
                     </div>
                 </div>

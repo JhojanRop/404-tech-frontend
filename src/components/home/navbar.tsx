@@ -5,7 +5,11 @@ import Button from "../ui/Button";
 import Link from "next/link";
 import IconButton from "../ui/IconButton";
 
-export default function Navbar() {
+interface NavbarProps {
+    cartQuantity: number;
+}
+
+export default function Navbar({ cartQuantity }: NavbarProps) {
     return (
         <header className="w-full h-20 px-5 bg-black flex items-center fixed top-0 z-10">
             <Link href="/" ><Logo className="w-26" /></Link>
@@ -17,7 +21,7 @@ export default function Navbar() {
             </nav>
 
             <div className="flex gap-2">
-                <IconButton icon={<ShoppingCartIcon width={16} />} quantity={0} />
+                <IconButton icon={<ShoppingCartIcon width={16} />} quantity={cartQuantity | 0} />
                 <IconButton icon={<UserIcon width={16} />} />
             </div>
         </header>
