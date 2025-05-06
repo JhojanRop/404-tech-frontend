@@ -14,7 +14,7 @@ export default function ContentLayout({ children, className, height = 100 }: Con
     70: 'h-[calc(70dvh)]',
     80: 'h-[calc(80dvh)]',
     90: 'h-[calc(90dvh)]',
-    100: 'h-[calc(100dvh_-_80px)]',
+    100: 'min-h-[calc(100dvh_-_80px)]',
   }[height]
 
   return (

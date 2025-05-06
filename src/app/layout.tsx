@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Tektur } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/home/navbar";
+import Footer from "@/components/home/footer";
 
 const tektur = Tektur({
   variable: "--font-tektur",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${tektur.variable} pt-20 antialiased`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
