@@ -10,6 +10,7 @@ import { useSort } from "@/hooks/useSort"
 import ContentLayout from "@/components/ContentLayout"
 import Link from "next/link"
 import SkeletonProduct from "@/components/ui/skeletonproducts"
+import ProductCard from "@/components/ui/ProductCard"
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -178,38 +179,7 @@ export default function ProductsPage() {
             <h2 className="sr-only text-foreground">Products</h2>
             <div className="-mx-px grid grid-cols-2 border-l border-gray-200 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
               {!loading && products.map((product) => (
-                <div key={product.id} className="group relative text-foreground border-r border-b border-gray-200 p-4 sm:p-6">
-                  <img
-                    alt={product.title}
-                    src={product.thumbnail}
-                    className="aspect-square rounded-lg bg-gray-200 object-cover group-hover:opacity-75"
-                  />
-                  <div className="pt-10 pb-4 text-center">
-                    <h3 className="text-sm font-medium">
-                      <Link href={`/products/${product.id}`}>
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {product.title}
-                      </Link>
-                    </h3>
-                    <div className="mt-3 flex flex-col items-center">
-                      <p className="sr-only">{product.rating} out of 5 stars</p>
-                      <div className="flex items-center">
-                        {[0, 1, 2, 3, 4].map((rating) => (
-                          <StarIcon
-                            key={rating}
-                            aria-hidden="true"
-                            className={classNames(
-                              product.rating > rating ? 'text-yellow-400' : 'text-gray-200',
-                              'size-5 shrink-0',
-                            )}
-                          />
-                        ))}
-                      </div>
-                      <p className="mt-1 text-sm text-foreground opacity-80">{product.rating} reviews</p>
-                    </div>
-                    <p className="mt-4 text-base font-medium text-foreground">${product.price.toLocaleString()}</p>
-                  </div>
-                </div>
+                <ProductCard key={product.id} product={product} bordered reviews />
               ))}
               {loading && Array.from({ length: 4 }, (_, index) => (
                 <SkeletonProduct key={index} />
