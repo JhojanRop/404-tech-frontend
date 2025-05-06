@@ -2,7 +2,7 @@
 import { Product } from "@/types/product";
 import { useState } from "react";
 import ContentLayout from "../ContentLayout";
-import ProductCard from "../ui/ProductCard";
+import ProductCardSlide from "../ui/ProductCardSlide";
 
 const Exclusive = () => {
   const [products, setProducts] = useState<Product[]>([
@@ -17,11 +17,7 @@ const Exclusive = () => {
       <ContentLayout height={80} className="flex flex-col justify-center">
         <h2 className="py-4 text-2xl font-bold">Exclusive disccount</h2>
         <div>
-          <div className="w-full flex justify-between">
-            {products.map(product => (
-              <ProductCard key={product.id} product={product} buyButton />
-            ))}
-          </div>
+          <ProductCardSlide products={products} autoPlay interval={3000} />
         </div>
       </ContentLayout>
     </section>

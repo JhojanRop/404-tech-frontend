@@ -1,12 +1,19 @@
-import { StarIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
-import Button from "./Button";
-
 import { Product } from "@/types/product";
+import { StarIcon } from "@heroicons/react/24/solid";
+import Button from "./Button";
+import Link from "next/link";
 
-export default function ProductCard({ product, bordered = false, reviews = false, buyButton = false }: { product: Product; bordered?: boolean; reviews?: boolean; buyButton?: boolean; }) {
+interface ProductCardProps {
+  product: Product;
+  bordered?: boolean;
+  reviews?: boolean;
+  buyButton?: boolean;
+  className?: string;
+}
+
+export default function ProductCard({ product, bordered = false, reviews = false, buyButton = false, className }: ProductCardProps) {
   return (
-    <div key={product.id} className={"group relative text-foreground p-4 sm:p-6" + (bordered ? ' border-r border-b border-gray-200' : '')}>
+    <div key={product.id} className={"group relative text-foreground p-4 sm:p-6" + (bordered ? ' border-r border-b border-gray-200' : '') + (className ? ` ${className}` : '')}>
       <img
         alt={product.title}
         src={product.thumbnail}

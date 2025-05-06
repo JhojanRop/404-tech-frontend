@@ -3,6 +3,7 @@ import { Product } from "@/types/product";
 import { useState } from "react";
 import ContentLayout from "../ContentLayout";
 import ProductCard from "../ui/ProductCard";
+import ProductCardSlide from "../ui/ProductCardSlide";
 
 const Bestsellers = () => {
   const [products, setProducts] = useState<Product[]>([
@@ -10,6 +11,11 @@ const Bestsellers = () => {
     { id: 2, thumbnail: "/image-test.jpg", title: 'Product B', price: 326.99, oldPrice: 450.30, isSale: true },
     { id: 3, thumbnail: "/image-test.jpg", title: 'Product C', price: 1500, oldPrice: 1700, isSale: true },
     { id: 4, thumbnail: "/image-test.jpg", title: 'Product D', price: 314 },
+    { id: 5, thumbnail: "/image-test.jpg", title: 'Product E', price: 314 },
+    { id: 6, thumbnail: "/image-test.jpg", title: 'Product F', price: 314 },
+    { id: 7, thumbnail: "/image-test.jpg", title: 'Product G', price: 314 },
+    { id: 8, thumbnail: "/image-test.jpg", title: 'Product H', price: 314 },
+    { id: 9, thumbnail: "/image-test.jpg", title: 'Product I', price: 314 },
   ])
 
   return (
@@ -17,11 +23,7 @@ const Bestsellers = () => {
       <ContentLayout height={80} className="flex flex-col justify-center">
         <h2 className="py-4 text-2xl font-bold">Best Sellers</h2>
         <div>
-          <div className="w-full flex justify-between">
-            {products.map(product => (
-              <ProductCard key={product.id} product={product} buyButton />
-            ))}
-          </div>
+          <ProductCardSlide products={products} autoPlay />
         </div>
       </ContentLayout>
     </section>
