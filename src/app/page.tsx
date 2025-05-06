@@ -15,7 +15,6 @@ export default function Home() {
       <Newsletter />
       <Exclusive />
       <Brands />
-      <Footer />
     </div>
   );
 }
