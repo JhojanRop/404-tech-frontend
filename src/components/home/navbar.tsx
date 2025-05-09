@@ -45,7 +45,7 @@ export default function Navbar() {
 
             <div className="flex gap-2">
                 <IconButton icon={<ShoppingCartIcon width={16} />} quantity={0} />
-                <IconButton icon={<UserIcon width={16} />} />
+                <IconButton icon={<UserIcon width={16} />} href='/login' />
             </div>
         </header>
     )
