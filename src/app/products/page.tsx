@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from "react"
 import { ChevronDownIcon, FunnelIcon, StarIcon } from "@heroicons/react/24/solid"
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { generatePaginationArray } from "@/utils/pagination"
@@ -11,6 +12,7 @@ import ContentLayout from "@/components/ContentLayout"
 import Link from "next/link"
 import SkeletonProduct from "@/components/ui/skeletonproducts"
 import ProductCard from "@/components/ui/ProductCard"
+import axios from "axios"
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -52,6 +54,21 @@ export default function ProductsPage() {
   const { filters, filtersCount, handleFilterChange, handleClearFilters } = useFilters(initialFilters)
   const { products, page, setPage, pagesCount, loading } = useProducts(getProducts)
   const { currentSort, sortOptions, handleSort } = useSort()
+  const [productsData, setProductsData] = useState([])
+
+  useEffect(() => {
+    const fecthProducts = async () => {
+      try {
+        const res = await axios.get('http://127.0.0.1:4000/products')
+        console.log(res.data)
+        setProductsData(res.data)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+
+    fecthProducts()
+  }, [])
 
   return (
     <main>
@@ -178,7 +195,7 @@ export default function ProductsPage() {
           <div className="mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8 text-foreground">
             <h2 className="sr-only text-foreground">Products</h2>
             <div className="-mx-px grid grid-cols-2 border-l border-gray-200 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
-              {!loading && products.map((product) => (
+              {!loading && productsData.map((product) => (
                 <ProductCard key={product.id} product={product} bordered reviews />
               ))}
               {loading && Array.from({ length: 4 }, (_, index) => (
